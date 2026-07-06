@@ -1,57 +1,62 @@
 # Calculadora de Empréstimos - Desafio TOTVS
 
-Este projeto consiste em uma aplicação Full Stack desenvolvida para simular o cálculo de parcelas de um empréstimo.
+Este projeto consiste em uma aplicação **Full Stack** desenvolvida para simular o cálculo de parcelas de um empréstimo.
 
 O sistema aplica regras de:
 
 - Juros compostos com base em dias corridos;
 - Cálculo de amortização;
-- Projeção do saldo devedor;
+- Projeção do saldo devedor.
 
-atendendo aos requisitos do desafio técnico da TOTVS.
+A solução atende aos requisitos do desafio técnico da TOTVS, priorizando organização, boas práticas de desenvolvimento e uma arquitetura bem definida.
 
 ---
 
 # Tecnologias Utilizadas
 
-# Back-end
+## Back-end
+
 - Java
 - Spring Boot
 - Maven
 
-# Front-end
+## Front-end
+
 - React
 - TypeScript
 - Vite
 
-# Comunicação
+## Comunicação
+
 - API REST (JSON)
 
 ---
 
 # Arquitetura e Decisões Técnicas
 
-# Separação de Responsabilidades
+## Separação de Responsabilidades
 
-Toda a regra de negócio e o motor de cálculos financeiros foram implementados no Back-end (Java), garantindo:
+Toda a regra de negócio e o motor de cálculos financeiros foram implementados no **Back-end (Java)**, garantindo:
 
 - Segurança;
 - Integridade dos cálculos;
 - Centralização da lógica de negócio;
 - Melhor performance.
 
-O Front-end (React) é responsável por:
+O **Front-end (React)** é responsável por:
 
 - Interface do usuário;
 - Coleta dos dados;
 - Validações de entrada;
 - Exibição do demonstrativo financeiro.
 
+Essa divisão facilita a manutenção, a escalabilidade e futuras evoluções do sistema.
+
 ---
 
-# Gestão de Datas
+## Gestão de Datas
 
-Foi utilizada a API de datas do Java (java.time), principalmente as classes:
+Foi utilizada a API de datas do Java (`java.time`), principalmente as classes:
 
 - `YearMonth`
 - `TemporalAdjusters`
@@ -66,7 +71,7 @@ Dessa forma, o cronograma de parcelas permanece consistente independentemente do
 
 ---
 
-# Validações (UX/UI)
+## Validações (UX/UI)
 
 Antes de enviar qualquer solicitação para a API, o Front-end realiza validações preventivas para impedir cronogramas inválidos.
 
@@ -80,13 +85,17 @@ Essa validação melhora a experiência do usuário e evita processamento desnec
 
 # Como Executar o Projeto
 
-Para executar a aplicação localmente, é necessário iniciar o Back-end e o Front-end.
+Para executar a aplicação localmente, é necessário iniciar o Back-end e o Front-end em terminais separados.
 
-# Executando o Back-end
+## Executando o Back-end
 
-Entre na pasta do projeto onde está localizado o arquivo `pom.xml`.
+A partir da raiz do projeto, navegue até a pasta do Back-end:
 
-Execute:
+```bash
+cd backend
+```
+
+Em seguida, execute a aplicação utilizando o Maven Wrapper:
 
 ```bash
 ./mvnw spring-boot:run
@@ -94,7 +103,7 @@ Execute:
 
 No Windows (PowerShell):
 
-```powershell
+```bash
 .\mvnw spring-boot:run
 ```
 
@@ -106,11 +115,12 @@ http://localhost:8080
 
 ---
 
-# Executando o Front-end
+## Executando o Front-end
 
-Entre na pasta do Front-end e instale as dependências:
+Abra um novo terminal na raiz do projeto, entre na pasta do Front-end e instale as dependências:
 
 ```bash
+cd frontend
 npm install
 ```
 
@@ -130,10 +140,10 @@ http://localhost:5173
 
 # Estrutura do Projeto
 
-```
+```text
 Calculadora-Emprestimos/
 │
-├── calculadora/          # Back-end (Spring Boot)
+├── backend/              # Back-end (Spring Boot)
 │
 ├── frontend/             # Front-end (React + Vite)
 │
@@ -144,19 +154,19 @@ Calculadora-Emprestimos/
 
 # Funcionalidades
 
-- Simulação de empréstimos
-- Cálculo de juros compostos
-- Cálculo de amortização
-- Projeção do saldo devedor
-- Cronograma completo de parcelas
-- Validação de datas
-- Integração via API REST
+- Simulação de empréstimos;
+- Cálculo de juros compostos;
+- Cálculo de amortização;
+- Projeção do saldo devedor;
+- Cronograma completo de parcelas;
+- Validação de datas;
+- Integração via API REST.
 
 ---
 
 # Observações
 
-Este projeto foi desenvolvido como solução para o Desafio Técnico da TOTVS, priorizando:
+Este projeto foi desenvolvido como solução para o **Desafio Técnico da TOTVS**, priorizando:
 
 - Organização do código;
 - Boas práticas de desenvolvimento;
