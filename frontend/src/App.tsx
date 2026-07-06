@@ -8,6 +8,7 @@ type ParcelaResponse = {
   consolidada: string;
   parcelaTotal: number;
   amortizacaoPrincipal: number;
+  saldo: number; 
   jurosProvisao: number;
   jurosAcumulado: number;
   jurosPago: number;
@@ -123,6 +124,7 @@ function App() {
                 <th>Consolidada</th>
                 <th>Parcela Total</th>
                 <th>Amortização Principal</th>
+                <th>Saldo</th> 
                 <th>Juros Provisão</th>
                 <th>Juros Acumulado</th>
                 <th>Juros Pago</th>
@@ -137,6 +139,7 @@ function App() {
                   <td className="center">{row.consolidada}</td>
                   <td>{formatarMoeda(row.parcelaTotal)}</td>
                   <td>{formatarMoeda(row.amortizacaoPrincipal)}</td>
+                  <td>{formatarMoeda(row.saldo)}</td> 
                   <td>{formatarMoeda(row.jurosProvisao)}</td>
                   <td>{formatarMoeda(row.jurosAcumulado)}</td>
                   <td>{formatarMoeda(row.jurosPago)}</td>

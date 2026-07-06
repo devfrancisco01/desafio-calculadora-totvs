@@ -62,8 +62,16 @@ public class CalculadoraService {
             
             if (dataAnterior == null) {
                 demonstrativo.add(new ParcelaResponse(
-                        dataAtual, request.valorEmprestimo(), saldoDevedor, "",
-                        BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO
+                        dataAtual, 
+                        request.valorEmprestimo(), 
+                        saldoDevedor, 
+                        "",
+                        BigDecimal.ZERO, 
+                        BigDecimal.ZERO, 
+                        saldoDevedor, 
+                        BigDecimal.ZERO, 
+                        BigDecimal.ZERO, 
+                        BigDecimal.ZERO
                 ));
                 dataAnterior = dataAtual;
                 continue;
@@ -96,13 +104,17 @@ public class CalculadoraService {
             saldoDevedor = saldoDevedor.subtract(amortizacao);
             BigDecimal parcelaTotal = amortizacao.add(jurosPago);
 
+            // Calcula o Saldo Devedor com os Juros Acumulados para a Coluna 3
+            BigDecimal saldoDevedorComJuros = saldoDevedor.add(jurosAcumulado);
+
             demonstrativo.add(new ParcelaResponse(
                     dataAtual,
                     BigDecimal.ZERO, 
-                    saldoDevedor.setScale(2, RoundingMode.HALF_UP),
+                    saldoDevedorComJuros.setScale(2, RoundingMode.HALF_UP),
                     consolidada,
                     parcelaTotal.setScale(2, RoundingMode.HALF_UP),
                     amortizacao.setScale(2, RoundingMode.HALF_UP),
+                    saldoDevedor.setScale(2, RoundingMode.HALF_UP), 
                     jurosProvisao.setScale(2, RoundingMode.HALF_UP),
                     jurosAcumulado.setScale(2, RoundingMode.HALF_UP),
                     jurosPago.setScale(2, RoundingMode.HALF_UP)

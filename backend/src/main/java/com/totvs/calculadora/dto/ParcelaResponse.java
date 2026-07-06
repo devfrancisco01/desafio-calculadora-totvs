@@ -10,6 +10,7 @@ public record ParcelaResponse(
     String consolidada,
     BigDecimal parcelaTotal,
     BigDecimal amortizacaoPrincipal,
+    BigDecimal saldo, 
     BigDecimal jurosProvisao,
     BigDecimal jurosAcumulado,
     BigDecimal jurosPago
