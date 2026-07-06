@@ -24,8 +24,13 @@ public class CalculadoraService {
         
         YearMonth mesFinal = YearMonth.from(request.dataFinal());
 
+        // Laço corrigido para garantir que a última parcela caia na Data Final
         while (!YearMonth.from(iteradorPagamento).isAfter(mesFinal)) {
-            datasPagamento.add(iteradorPagamento);
+            if (YearMonth.from(iteradorPagamento).equals(mesFinal)) {
+                datasPagamento.add(request.dataFinal());
+            } else {
+                datasPagamento.add(iteradorPagamento);
+            }
             totalParcelas++;
             iteradorPagamento = iteradorPagamento.plusMonths(1);
         }
